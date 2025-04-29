@@ -2,3 +2,10 @@
 __pycache__/
 *.py[cod]
 
+# Large dataset file
+creditcard.csv
+
+# Keep the split dataset files
+!creditcard_part1.csv
+!creditcard_part2.csv
+

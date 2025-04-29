@@ -11,7 +11,16 @@ from sklearn.metrics import classification_report, roc_auc_score, precision_scor
 # Load dataset
 @st.cache_data
 def load_data():
-    df = pd.read_csv('creditcard.csv')
+    # Load data from two separate CSV files
+    try:
+        df_part1 = pd.read_csv('creditcard_part1.csv')
+        df_part2 = pd.read_csv('creditcard_part2.csv')
+        # Merge the two dataframes
+        df = pd.concat([df_part1, df_part2], ignore_index=True)
+        st.sidebar.success("Successfully loaded both dataset chunks!")
+    except FileNotFoundError as e:
+        st.sidebar.error(f"Error loading dataset: {e}")
+        st.stop()
     return df
 
 # Cache the scaling transformations
