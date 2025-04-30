@@ -144,7 +144,7 @@ if st.button("Predict"):
 # Sidebar metrics
 with st.sidebar:
     st.header("Model Metrics")
-    st.subheader("Classification Report")
+    # st.subheader("Classification Report")
     # st.text(report)
     st.subheader("ROC AUC Score")
     st.write(f"{auc_score:.4f}")
